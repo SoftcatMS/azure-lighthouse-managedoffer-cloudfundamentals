@@ -1,4 +1,4 @@
-# Azure Lighthouse Managed Offer - Cloud Essentials
+# Azure Lighthouse Managed Offer - Cloud Fundamentals
 Stores the Azure Lighthouse Managed Service Offer template that can be used to provide delegation to customer environments from objects within the Softcat Partner account
 
 The following permissions are included in this lighthouse offer.
@@ -18,4 +18,4 @@ The following permissions are included in this lighthouse offer.
 
 Use the below button to deploy this Azure Lighthouse offer to a tenant.
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FSoftcatMS%2Fazure-lighthouse-managedoffer-cloudessentials%2Fmain%2Fproduction-lighthouse-offer-ce.json)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FSoftcatMS%2Fazure-lighthouse-managedoffer-cloudfundamentals%2Fmain%2Fproduction-lighthouse-offer-ce.json)
