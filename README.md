@@ -7,12 +7,9 @@ The following permissions are included in this lighthouse offer.
 
 | User/Group                                    | Delegated Permission                                 | Access Type | Max Duration | MFA   | Approvers                      |
 | --------------------------------------------- | ---------------------------------------------------- | ----------- | ------------ | ---   | ------------------------------ |
-| ALH - Managed Azure Engineers                 | Reader                                               | Permanent   | -            | -     | -                              |
-| ALH - Managed Azure Engineers                 | Support Request Contributor                          | Permanent   | -            | -     | -                              |
-| ALH - Managed Azure Engineers                 | Managed Services Registration Assignment Delete Role | Permanent   | -            | -     | -                              |
-| ALH - Managed Azure Service Delivery Managers | Reader                                               | Permanent   | -            | -     | -                              |
-| ALH - Managed Azure Services                  | Reader                                               | Permanent   | -            | -     | -                              |
-| ALH - Managed Azure Services                  | Support Request Contributor                          | Permanent   | -            | -     | -                              |
+| ALH - Managed Azure Customer Reliability Engineers                 | Reader                                               | Permanent   | -            | -     | -                              |
+| ALH - Managed Azure Customer Reliability Engineers                 | Managed Services Registration Assignment Delete Role | Permanent   | -            | -     | -                              |
+| ALH - Managed Azure Solutions Design                               | Reader                                               | Permanent   | -            | -     | -                              |
 
 # Deploy to Azure 
 
