@@ -1,76 +1,86 @@
 {
- "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
- "contentVersion": "1.0.0.0",
- "parameters": {
-  "mspOfferName": {
-   "type": "string",
-   "metadata": {
-    "description": "Specify a unique name for your offer"
-   },
-   "defaultValue": "Softcat - Cloud Fundamentals Offer (Private Preview)"
-  },
-  "mspOfferDescription": {
-   "type": "string",
-   "metadata": {
-    "description": "Name of the Managed Service Provider offering"
-   },
-   "defaultValue": "Provides permissions from groups in the Softcat Partner account access to customer environments for the Cloud Fundamentals service"
-  }
- },
- "variables": {
-  "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
-  "mspAssignmentName": "[guid(parameters('mspOfferName'))]",
-  "managedByTenantId": "fbd4347a-3682-41ac-8e52-8a2cbf8dd0dc",
-  "authorizations": [
-   {
-    "principalId": "8cfb1b06-9381-4825-b826-c06e1c63a5f5",
-    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "principalIdDisplayName": "ALH - Managed Azure Customer Reliability Engineers"
-   },
-   {
-    "principalId": "8cfb1b06-9381-4825-b826-c06e1c63a5f5",
-    "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
-    "principalIdDisplayName": "ALH - Managed Azure Customer Reliability Engineers"
-   },
-   {
-    "principalId": "7f75cc47-3368-46e6-92ce-23ef96ed8d7d",
-    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "principalIdDisplayName": "ALH - Managed Azure Solutions Design"
-   }
-  ]
- },
- "resources": [
-  {
-   "type": "Microsoft.ManagedServices/registrationDefinitions",
-   "apiVersion": "2020-02-01-preview",
-   "name": "[variables('mspRegistrationName')]",
-   "properties": {
-    "registrationDefinitionName": "[parameters('mspOfferName')]",
-    "description": "[parameters('mspOfferDescription')]",
-    "managedByTenantId": "[variables('managedByTenantId')]",
-    "authorizations": "[variables('authorizations')]"
-   }
-  },
-  {
-   "type": "Microsoft.ManagedServices/registrationAssignments",
-   "apiVersion": "2020-02-01-preview",
-   "name": "[variables('mspAssignmentName')]",
-   "dependsOn": [
-    "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
-   ],
-   "properties": {
-    "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
-   }
-  }
- ],
- "outputs": {
-  "mspOfferName": {
-   "type": "string",
-   "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
-  },
-  "authorizations": {
-   "type": "array",
-   "value": "[variables('authorizations')]"
-  }
- }
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mspOfferName": {
+            "type": "string",
+            "metadata": {
+                "description": "Specify a unique name for your offer"
+            },
+            "defaultValue": "Softcat - Cloud Fundamentals Offer (Private Preview)"
+        },
+        "mspOfferDescription": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the Managed Service Provider offering"
+            },
+            "defaultValue": "Provides permissions from groups in the Softcat Partner account access to customer environments for the Cloud Fundamentals service"
+        }
+    },
+    "variables": {
+        "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+        "mspAssignmentName": "[guid(parameters('mspOfferName'))]",
+        "managedByTenantId": "fbd4347a-3682-41ac-8e52-8a2cbf8dd0dc",
+        "authorizations": [
+            {
+                "principalId": "8cfb1b06-9381-4825-b826-c06e1c63a5f5",
+                "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                "principalIdDisplayName": "ALH - Managed Azure Customer Reliability Engineers"
+            },
+            {
+                "principalId": "8cfb1b06-9381-4825-b826-c06e1c63a5f5",
+                "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
+                "principalIdDisplayName": "ALH - Managed Azure Customer Reliability Engineers"
+            },
+            {
+                "principalId": "7f75cc47-3368-46e6-92ce-23ef96ed8d7d",
+                "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                "principalIdDisplayName": "ALH - Managed Azure Solutions Design"
+            },
+            {
+                "principalId": "9b38f376-5ada-45b2-b410-9a534c5be87c",
+                "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                "principalIdDisplayName": "ALH - Managed Azure Engineers"
+            },
+            {
+                "principalId": "9b38f376-5ada-45b2-b410-9a534c5be87c",
+                "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
+                "principalIdDisplayName": "ALH - Managed Azure Engineers"
+            }
+        ]
+    },
+    "resources": [
+        {
+            "type": "Microsoft.ManagedServices/registrationDefinitions",
+            "apiVersion": "2020-02-01-preview",
+            "name": "[variables('mspRegistrationName')]",
+            "properties": {
+                "registrationDefinitionName": "[parameters('mspOfferName')]",
+                "description": "[parameters('mspOfferDescription')]",
+                "managedByTenantId": "[variables('managedByTenantId')]",
+                "authorizations": "[variables('authorizations')]"
+            }
+        },
+        {
+            "type": "Microsoft.ManagedServices/registrationAssignments",
+            "apiVersion": "2020-02-01-preview",
+            "name": "[variables('mspAssignmentName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+            ],
+            "properties": {
+                "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+            }
+        }
+    ],
+    "outputs": {
+        "mspOfferName": {
+            "type": "string",
+            "value": "[concat('Managed by', ' ', parameters('mspOfferName'))]"
+        },
+        "authorizations": {
+            "type": "array",
+            "value": "[variables('authorizations')]"
+        }
+    }
 }
